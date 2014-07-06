@@ -1,5 +1,6 @@
 #alias
 alias ls="ls -G -A"
+alias gulp="gulp --require coffee-script/register"
 
 #!/usr/bin/env bash
  
