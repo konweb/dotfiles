@@ -1,3 +1,6 @@
+#alias
+alias ls="ls -G -A"
+
 #!/usr/bin/env bash
  
 # Check that terminfo exists before changing TERM var to xterm-256color
