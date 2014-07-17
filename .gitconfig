@@ -20,6 +20,6 @@
 	br = branch
 	st = status
 	sb = show-branch
-	mylog="git log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'"
-	clone-Grunt="git clone https://github.com/konweb/Grunt"
-	clone-dotfiles="git clone https://github.com/konweb/dotfiles"
+	mylog="log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'"
+	clone-Grunt="clone https://github.com/konweb/Grunt"
+	clone-dotfiles="clone https://github.com/konweb/dotfiles"
