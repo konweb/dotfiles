@@ -15,6 +15,10 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [alias]
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
 	sb = show-branch
 	mylog="git log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'"
 	clone-Grunt="git clone https://github.com/konweb/Grunt"
