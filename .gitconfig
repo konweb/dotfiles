@@ -19,7 +19,11 @@
 	ci = commit
 	br = branch
 	st = status
+	cl = clone
+	ad = add
+	fe = fetch
+	di = diff
+	pl = pull
+	ps = push
 	sb = show-branch
-	mylog="log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'"
-	clone-Grunt="clone https://github.com/konweb/Grunt"
-	clone-dotfiles="clone https://github.com/konweb/dotfiles"
+	mylog = log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'
