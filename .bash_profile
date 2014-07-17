@@ -1,8 +1,6 @@
 #alias
 alias ls="ls -G -A"
 alias gulp="gulp --require coffee-script/register"
-alias mylog="git log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'"
-alias gitGrunt="git clone https://github.com/konweb/Grunt"
 
 #!/usr/bin/env bash
 
