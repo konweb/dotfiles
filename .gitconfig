@@ -18,7 +18,7 @@
 	co = checkout
 	ci = commit
 	br = branch
-	st = status
+	st = status --short --branch
 	cl = clone
 	ad = add
 	fe = fetch
