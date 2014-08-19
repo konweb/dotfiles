@@ -29,3 +29,5 @@
 	cle = clean
 	me = merge
 	mylog = log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'
+[http]
+	postBuffer = 524288000
