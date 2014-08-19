@@ -117,4 +117,4 @@ PS1+="\$(prompt_git)" # Git details
 PS1+="\n" # Newline
 PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)
 
-source ~/.git-completion.bash
+source ~/dotfiles/.git-completion.bash
