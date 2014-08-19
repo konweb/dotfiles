@@ -1,6 +1,16 @@
 ##Dotfileを管理
 
-####シェルの反映
+####cloneして
+```
+git clone https://github.com/konweb/dotfiles
+```
+
+####pullして
+```
+git pull origin master
+```
+
+####シェルの反映して
 ```
 sh dotfilesLink.sh
 ```
