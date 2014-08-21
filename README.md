@@ -19,5 +19,3 @@ sh dotfilesLink.sh
 ```
 source ~/.bash_profile
 ```
-
-testです。
