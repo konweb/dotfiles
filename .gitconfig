@@ -1,0 +1,33 @@
+[user]
+	name = mb_kondou
+	email = kondou@maboroshi.biz
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+	excludesfile = /Users/maboroshi_kondou/.gitignore_global
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	st = status --short --branch
+	cl = clone
+	ad = add
+	fe = fetch
+	di = diff
+	pl = pull
+	ps = push
+	sb = show-branch
+	cle = clean
+	me = merge
+	mylog = log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'
+[http]
+	postBuffer = 524288000
