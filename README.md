@@ -1,11 +1,11 @@
 ##Dotfileを管理
 
-####cloneして
+####初めはclone
 ```
 git clone https://github.com/konweb/dotfiles
 ```
 
-####pullして
+####最新版に更新
 ```
 git pull origin master
 ```
