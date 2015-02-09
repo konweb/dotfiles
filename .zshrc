@@ -83,4 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-# lsがカラー表示になるようエイリアスを設定
+# alias
+alias ls="ls -G -A"
+alias gulp="gulp --require coffee-script/register"
+alias server="python -m SimpleHTTPServer"
+alias mm="middleman"
+alias brew up="brew update && brew upgrade"
