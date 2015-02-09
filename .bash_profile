@@ -2,6 +2,7 @@
 alias ls="ls -G -A"
 alias gulp="gulp --require coffee-script/register"
 alias server="python -m SimpleHTTPServer"
+alias mm="middleman"
 
 #!/usr/bin/env bash
 
