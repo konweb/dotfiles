@@ -83,7 +83,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export EDITOR=vim
-export PATH=/usr/local/bin:$PATH
+# export EDITOR='subl'
+# export EDITOR='atom'
+# export EDITOR='coda'
+# export PATH=/usr/local/bin:$PATH
 # export LESS='-R'
 # export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
@@ -106,6 +109,9 @@ alias st='svn st'
 alias sad='svn add'
 alias sup='svn up'
 alias sci='svn ci'
+alias sco='svn co'
+alias sin='svn info'
+alias sme='svn merge'
 alias sre='svn revert'
 alias sdl='svn del'
 
@@ -116,7 +122,7 @@ sl(){
 
 # svn diff
 sdi(){
-	svn diff $1 | vim -R -
+	svn diff -x --ignore-eol-style $1 | vim -R -
 }
 
 
@@ -132,3 +138,4 @@ sdi(){
 #     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 # }
 # RPROMPT="%1(v|%F{green}%1v%f|)"
+# export PATH=$PATH:$HOME/bin
