@@ -63,6 +63,3 @@ fontはRictyがいい感じ。
 githubから[インストール](https://github.com/yascentur/RictyDiminished)
 
 インストールしたらフォントをPCにインストールして、ターミナルやらitermやらのフォント設定からRictyを選択する。
-
-
-
