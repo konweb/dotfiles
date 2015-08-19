@@ -95,7 +95,10 @@ alias ls="ls -G -A"
 alias gulp="gulp --require coffee-script/register"
 alias server="python -m SimpleHTTPServer"
 alias mm="middleman"
-alias brew up="brew update && brew upgrade"
+alias br="brew"
+alias brup="brew update && brew upgrade"
+alias brc="brew cask"
+alias brcup="brew cask cleanup && brew file cask_upgrade -C"
 alias va="vagrant"
 #alias less="less -R"
 
@@ -120,3 +123,5 @@ sl(){
 sdi(){
 	svn diff -x --ignore-eol-style $1 | vim -R -
 }
+# zsh-bd
+. $HOME/.zsh/plugins/bd/bd.zsh
