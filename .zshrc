@@ -100,12 +100,8 @@ alias va="vagrant"
 #alias less="less -R"
 
 # for svn
-alias svn="colorsvn"
-#alias st='svn st | less -FSRX'
-#alias stu='svn st -u | less -FSRX'
-#alias sd='svn di | less -FSRX'
-#alias sdi='svn diff | colordiff | less -FSRX'
-alias st='svn st'
+alias svn='colorsvn'
+alias sst='svn st -u'
 alias sad='svn add'
 alias sup='svn up'
 alias sci='svn ci'
@@ -124,18 +120,3 @@ sl(){
 sdi(){
 	svn diff -x --ignore-eol-style $1 | vim -R -
 }
-
-
-
-
-# vcs_info 設定
-# autoload -Uz vcs_info
-# zstyle ':vcs_info:*' formats '(%s)-[%b]'
-# zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-# precmd () {
-#     psvar=()
-#     LANG=en_US.UTF-8 vcs_info
-#     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-# }
-# RPROMPT="%1(v|%F{green}%1v%f|)"
-# export PATH=$PATH:$HOME/bin
