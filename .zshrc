@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +54,7 @@ plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer do
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -92,7 +93,7 @@ export EDITOR=vim
 
 # for shortcut
 alias ls="ls -G -A"
-alias gulp="gulp --require coffee-script/register"
+# alias gulp="gulp --require coffee-script/register"
 alias server="python -m SimpleHTTPServer"
 alias mm="middleman"
 alias br="brew"
@@ -100,6 +101,7 @@ alias brup="brew update && brew upgrade"
 alias brc="brew cask"
 alias brcup="brew cask cleanup && brew file cask_upgrade -C"
 alias va="vagrant"
+alias ple="pleeease"
 #alias less="less -R"
 
 # for svn

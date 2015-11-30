@@ -2,8 +2,8 @@
 	name = mb_kondou
 	email = kondou@maboroshi.biz
 [core]
-	editor = vim -c \"set fenc=utf-8\"
 	excludesfile = /Users/maboroshi_kondou/.gitignore_global
+	autocrlf = false
 [color]
 	diff = auto
 	status = auto
@@ -29,5 +29,6 @@
 	cle = clean
 	me = merge
 	mylog = log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'
+	pull-dry-run = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
 [http]
 	postBuffer = 524288000
