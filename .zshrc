@@ -102,7 +102,7 @@ alias brc="brew cask"
 alias brcup="brew cask cleanup && brew file cask_upgrade -C"
 alias va="vagrant"
 alias ple="pleeease"
-#alias less="less -R"
+alias wp-setup="curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash"
 
 # for svn
 alias svn='colorsvn'
