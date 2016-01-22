@@ -32,3 +32,5 @@
 	pull-dry-run = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
 [http]
 	postBuffer = 524288000
+[commit]
+	template = /Users/maboroshi_kondou/dotfiles/.gitmessage.txt
