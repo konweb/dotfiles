@@ -116,6 +116,8 @@ alias sme='svn merge'
 alias sre='svn revert'
 alias sdl='svn del'
 
+alias ssh-config-update="cat ~/.ssh/conf/*.conf > ~/.ssh/config"
+
 # svn log limit
 sl(){
 	svn log -l $1 -v
