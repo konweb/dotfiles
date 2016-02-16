@@ -34,3 +34,5 @@
 	postBuffer = 524288000
 [commit]
 	template = /Users/maboroshi_kondou/dotfiles/.gitmessage.txt
+[merge]
+	tool = vimdiff
