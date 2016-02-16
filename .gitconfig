@@ -15,6 +15,7 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [alias]
+	g  = git
 	co = checkout
 	ci = commit
 	br = branch
@@ -30,6 +31,8 @@
 	me = merge
 	mylog = log --graph --name-status --pretty=format:'%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset'
 	pull-dry-run = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
+	skip = update-index --skip-worktree
+	no-skip = update-index --no-skip-worktree
 [http]
 	postBuffer = 524288000
 [commit]
