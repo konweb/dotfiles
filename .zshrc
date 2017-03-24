@@ -103,6 +103,8 @@ alias brcup="brew cask cleanup && brew file cask_upgrade -C"
 alias va="vagrant"
 alias ple="pleeease"
 alias wp-setup="curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash -s"
+alias wm="wordmove"
+alias j="autojump"
 
 # for svn
 alias svn='colorsvn'
@@ -117,6 +119,9 @@ alias sre='svn revert'
 alias sdl='svn del'
 
 alias ssh-config-update="cat ~/.ssh/conf/*.conf > ~/.ssh/config"
+
+# autojump
+[[ -s /Users/maboroshi_kondou/.autojump/etc/profile.d/autojump.sh ]] && source /Users/maboroshi_kondou/.autojump/etc/profile.d/autojump.sh
 
 # svn log limit
 sl(){
@@ -152,3 +157,4 @@ function git_diff_zip() {
 function git_diff_tag_zip() {
 	git archive --format=zip --prefix=root/ $1 `git diff --name-only ${2} ${1}` -o ./hoge.zip
 }
+export PATH="/usr/local/sbin:$PATH"
