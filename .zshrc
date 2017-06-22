@@ -1,3 +1,13 @@
+# -----------------------------------------
+# command memo
+# -----------------------------------------
+# 登録されているキーバインドを検索できる
+# bindkey | grep '"^."'
+
+
+# -----------------------------------------
+# oh-my-zsh setting
+# -----------------------------------------
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -94,9 +104,10 @@ export EDITOR=vim
 # export LESS='-R'
 # export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
-# -----------------
+
+# -----------------------------------------
 # alias setting
-# -----------------
+# -----------------------------------------
 # for shortcut
 alias ls="ls -G -A"
 # alias gulp="gulp --require coffee-script/register"
@@ -144,10 +155,10 @@ sdi(){
 . $HOME/.zsh/plugins/bd/bd.zsh
 
 
-# -----------------
-# git function
-# -----------------
-function git_diff_zip() {
+# -----------------------------------------
+# git functions
+# -----------------------------------------
+git_diff_zip() {
 	local diff=""
 	local h="HEAD"
 	if [ $# -eq 1 ]; then
@@ -166,27 +177,16 @@ function git_diff_zip() {
 	git archive --format=zip --prefix=root/ $h `eval $diff` -o archive.zip
 }
 
-function git_diff_tag_zip() {
+git_diff_tag_zip() {
 	git archive --format=zip --prefix=root/ $1 `git diff --name-only ${2} ${1}` -o ./hoge.zip
 }
+
+
+# -----------------------------------------
+# ndenv setting
+# -----------------------------------------
 export PATH="$HOME/.ndenv/bin:$PATH"
 eval "$(ndenv init -)"
-
-
-# -----------------
-# fzf setting
-# -----------------
-# fzf options
-export FZF_DEFAULT_OPTS='--reverse'
-
-# fzf history shortcut
-function select-history() {
-	BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
-	CURSOR=$#BUFFER
-}
-zle -N select-history
-bindkey '^r' select-history
-
 
 
 # -----------------------------------------
@@ -194,6 +194,9 @@ bindkey '^r' select-history
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
 # -----------------------------------------
+# fzf options
+export FZF_DEFAULT_OPTS='--reverse'
+
 fe() {
 	local file
 	file=$(fzf --query="$2" --select-1 --exit-0)
@@ -203,12 +206,47 @@ fe() {
 # fd - cd to selected directory
 fd() {
 	local dir
-	dir=$(find ${1:-*} -path '*/\.*' -prune \
+	dir=$(find ${1:-.} -path '*/\.*' -prune \
 									-o -type d -print 2> /dev/null | fzf +m) &&
 	cd "$dir"
+}
+
+# fdr - cd to selected parent directory
+fdr() {
+	local declare dirs=()
+	get_parent_dirs() {
+		if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
+		if [[ "${1}" == '/' ]]; then
+			for _dir in "${dirs[@]}"; do echo $_dir; done
+		else
+			get_parent_dirs $(dirname "$1")
+		fi
+	}
+	local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux --tac)
+	cd "$DIR"
+}
+
+# cdf - cd into the directory of the selected file
+cdf() {
+	local file
+	local dir
+	file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
 
 # fh - repeat history
 fh() {
 	print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+zle -N fh
+bindkey '^r' fh
+
+# fkill - kill process
+fkill() {
+	local pid
+	pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+	if [ "x$pid" != "x" ]
+	then
+		echo $pid | xargs kill -${1:-9}
+	fi
 }
