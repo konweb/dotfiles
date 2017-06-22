@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,7 +48,11 @@ DISABLE_LS_COLORS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer docker encode64 gem git homeshick pow rails rake rbenv tig tmux vagrant web-search)
+plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer docker encode64 gem git homeshick pow rails rake rbenv tig tmux vagrant web-search zsh-syntax-highlighting)
+
+# cd-bookmark
+fpath=(/Users/maboroshi_kondou/cd-bookmark(N-/) $fpath)
+autoload -Uz cd-bookmark
 
 # User configuration
 
@@ -104,7 +107,7 @@ alias va="vagrant"
 alias ple="pleeease"
 alias wp-setup="curl https://raw.githubusercontent.com/miya0001/wp-instant-setup/master/run.sh | bash -s"
 alias wm="wordmove"
-alias j="autojump"
+alias gbs="java -jar /usr/local/opt/gitbucket/libexec/gitbucket.war"
 
 # for svn
 alias svn='colorsvn'
@@ -118,6 +121,8 @@ alias sme='svn merge'
 alias sre='svn revert'
 alias sdl='svn del'
 
+# others
+alias cdb='cd-bookmark'
 alias ssh-config-update="cat ~/.ssh/conf/*.conf > ~/.ssh/config"
 
 # autojump
@@ -157,4 +162,18 @@ function git_diff_zip() {
 function git_diff_tag_zip() {
 	git archive --format=zip --prefix=root/ $1 `git diff --name-only ${2} ${1}` -o ./hoge.zip
 }
-export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.ndenv/bin:$PATH"
+eval "$(ndenv init -)"
+
+
+# fzf setting
+	# fzf options
+	export FZF_DEFAULT_OPTS='--reverse'
+
+	# fzf history shortcut
+	function select-history() {
+		BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+		CURSOR=$#BUFFER
+	}
+	zle -N select-history
+	bindkey '^r' select-history

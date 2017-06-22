@@ -38,3 +38,4 @@ set tabstop=2
 set autoindent
 set expandtab
 set shiftwidth=4
+set backupskip=/tmp/*,/private/tmp/*

@@ -1,5 +1,5 @@
 [user]
-	name = mb_kondou
+	name = kondou
 	email = kondou@maboroshi.biz
 [core]
 	excludesfile = /Users/maboroshi_kondou/.gitignore_global
@@ -33,6 +33,7 @@
 	pull-dry-run = !"git fetch origin; B=$(git rev-parse --abbrev-ref HEAD); git diff --stat --summary ${B}..origin/${B}"
 	skip = update-index --skip-worktree
 	no-skip = update-index --no-skip-worktree
+	config-ls = config --list --show-origin
 [http]
 	postBuffer = 524288000
 [commit]
