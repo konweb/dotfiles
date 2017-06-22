@@ -51,7 +51,7 @@ DISABLE_LS_COLORS="true"
 plugins=(my-env atom autojump brew brew-cask bundler cdd colored-man composer docker encode64 gem git homeshick pow rails rake rbenv tig tmux vagrant web-search zsh-syntax-highlighting)
 
 # cd-bookmark
-fpath=(/Users/maboroshi_kondou/cd-bookmark(N-/) $fpath)
+fpath=($HOME/cd-bookmark(N-/) $fpath)
 autoload -Uz cd-bookmark
 
 # User configuration
@@ -94,6 +94,9 @@ export EDITOR=vim
 # export LESS='-R'
 # export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
+# -----------------
+# alias setting
+# -----------------
 # for shortcut
 alias ls="ls -G -A"
 # alias gulp="gulp --require coffee-script/register"
@@ -126,7 +129,7 @@ alias cdb='cd-bookmark'
 alias ssh-config-update="cat ~/.ssh/conf/*.conf > ~/.ssh/config"
 
 # autojump
-[[ -s /Users/maboroshi_kondou/.autojump/etc/profile.d/autojump.sh ]] && source /Users/maboroshi_kondou/.autojump/etc/profile.d/autojump.sh
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 # svn log limit
 sl(){
@@ -140,6 +143,10 @@ sdi(){
 # zsh-bd
 . $HOME/.zsh/plugins/bd/bd.zsh
 
+
+# -----------------
+# git function
+# -----------------
 function git_diff_zip() {
 	local diff=""
 	local h="HEAD"
@@ -166,14 +173,42 @@ export PATH="$HOME/.ndenv/bin:$PATH"
 eval "$(ndenv init -)"
 
 
+# -----------------
 # fzf setting
-	# fzf options
-	export FZF_DEFAULT_OPTS='--reverse'
+# -----------------
+# fzf options
+export FZF_DEFAULT_OPTS='--reverse'
 
-	# fzf history shortcut
-	function select-history() {
-		BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
-		CURSOR=$#BUFFER
-	}
-	zle -N select-history
-	bindkey '^r' select-history
+# fzf history shortcut
+function select-history() {
+	BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+	CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history
+
+
+
+# -----------------------------------------
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+# -----------------------------------------
+fe() {
+	local file
+	file=$(fzf --query="$2" --select-1 --exit-0)
+	[ -n "$file" ] && $1 "$file"
+}
+
+# fd - cd to selected directory
+fd() {
+	local dir
+	dir=$(find ${1:-*} -path '*/\.*' -prune \
+									-o -type d -print 2> /dev/null | fzf +m) &&
+	cd "$dir"
+}
+
+# fh - repeat history
+fh() {
+	print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
