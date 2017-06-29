@@ -138,6 +138,8 @@ alias sdl='svn del'
 # others
 alias cdb='cd-bookmark'
 alias ssh-config-update="cat ~/.ssh/conf/*.conf > ~/.ssh/config"
+alias dk="docker"
+alias dkc="docker-compose"
 
 # autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
